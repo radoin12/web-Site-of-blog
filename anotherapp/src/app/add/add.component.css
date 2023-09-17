@@ -1,0 +1,122 @@
+
+
+.form{
+  display: flex;
+
+  padding:50px 20px;
+  
+  min-height: 70vh;
+}
+.left{
+  flex:3 ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:30px
+}
+.left .item{
+  width: 200px;
+  padding: 10px;
+  border: none ;
+  border-bottom: 1px solid black;
+}
+.left .area{
+  border-radius: 5px;
+  padding: 10px;
+}
+
+
+.rigth{
+  flex:1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:5px;
+  border: 2px solid blue;
+  box-sizing: border-box;
+  border-radius: 5px;
+}
+.rigth h2{
+  text-align: center;
+  color: rgb(47, 226, 89);
+  font-weight: 400;
+}
+.rigth .upload{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap:10px ;
+  padding: 10px 10px 20px 10px;
+
+}
+.rigth .options{
+  display: grid;
+  grid-template-columns: auto auto auto  ;
+}
+.radio{
+  display: flex;
+  align-items: center;
+  gap:10px;
+  width: 110px;
+  
+}
+.loading{
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+  color: red;
+  font-size: 35px;
+}
+.rigth button{
+  padding: 7px 10px;
+  text-align: center;
+  cursor: pointer;
+  margin-top: 20px;
+  background-color: rgb(42, 124, 42);
+  color: white;
+  border-radius: 5px;
+}
+.rigth button:hover{
+   background-color: green;
+}
+
+/* dark mode */
+.darkMode{
+ background-color: rgb(20, 20, 20);
+ color:white
+}
+.whiteMode{
+  background-color: rgb(88, 103, 173);
+  color:rgb(243, 238, 238)
+ }
+
+/* media querry */
+
+@media screen and (max-width:950px) {
+  .form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:20px
+  }
+  .rigth,.left{
+  width: 100%;
+  margin: 10px;
+  }
+  .rigth button{
+    margin-bottom: 20px;
+   }
+}
+@media screen and (max-width:600px) {
+  .left .area{
+  width: 90%;
+ 
+  }
+  
+}
+@media screen and (max-width:350px) {
+  .options{
+    display: grid;
+    grid-template-columns: auto auto;
+  }
+}

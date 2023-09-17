@@ -1,0 +1,17 @@
+<div class="list">
+   <div class="card" [ngClass]="{'card':true,'cardDark':(dark$|async),'cardWhite':!(dark$|async)}" >
+   
+   
+
+      <ng-container *ngIf="data?.img">
+         <img [src]="'assets/uploads/'+data?.img" alt=""/>
+      </ng-container>
+     <h2>{{data?.title}}</h2>
+     <p> Published At:{{calculateRelative(data?.date) }}</p>
+     <p>{{data?.description}}</p>
+     <button *ngIf="data?.userId" [routerLink]="['/single',data?.id] "[queryParams]={userId:data?.userId} >View</button>
+   
+    
+     
+   </div>
+</div>

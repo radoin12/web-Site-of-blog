@@ -1,0 +1,33 @@
+
+  
+ 
+
+
+<div *ngIf="load;else  productContent" class="loading-container">
+<p class="loading-spinner"></p>
+</div>
+<ng-template #productContent>
+
+<div class="app-Game" >
+  <app-slide  ></app-slide> 
+  
+  <div>
+    <div class="containers">
+      <ng-container *ngIf="darek$ | async as data">
+        <div *ngFor="let product of updateitem(data)">
+           
+          <app-list [data]="product" ></app-list>
+          
+         
+         </div>
+      </ng-container>
+          
+      </div>
+      <div class="action">
+        <button [ngClass]="{'previous':page>0,'disbledBtn':page-1<0}" [disabled]="page-1<0" class="" (click)="previousPage()">Previous</button>
+        <button  [ngClass]="{'next':page<TotalPage-1,'disbledBtn':page>TotalPage-2}"  [disabled]="page>TotalPage-2" (click)=" nextPage()">Next</button>
+       </div>
+  </div>
+       
+    </div>
+</ng-template>

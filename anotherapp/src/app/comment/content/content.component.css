@@ -1,0 +1,47 @@
+
+
+
+/* content */
+.content_comment{
+    
+    border:0.5px solid ;
+    padding: 10px;
+    border-radius: 5px;
+   
+ 
+    gap:15px
+    
+}
+.test{
+    display: flex;
+    flex-direction: column;
+    gap:20px
+}
+.container .item{
+   display: flex;
+
+    gap:10px,
+
+}
+.container span {
+    font-size: 20px;
+    font-weight: 300;
+    font-style: italic;
+
+}
+.item .img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+ 
+}
+
+/* dark Mode */
+.whiteMode{
+    background-color: aliceblue;
+    color: rgb(87, 85, 85);
+}
+.darkMode{
+    background-color: rgb(52, 52, 53);
+    color: rgb(244, 235, 235);
+}

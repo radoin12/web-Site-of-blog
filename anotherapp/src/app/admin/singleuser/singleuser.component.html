@@ -1,0 +1,116 @@
+
+
+<ng-container *ngIf="status;else content">
+   <div class="loading-container ">
+    <span class="loading-spinner"></span>
+   </div>
+</ng-container>
+<ng-template #content>
+  <ng-container *ngIf="url==='user'">
+  
+
+  
+    <div class="addition" >
+      <button mat-button class="add" routerLink="/adduser"> 
+        <span>+</span> 
+      </button>
+      <span class="name">Add User</span>
+    </div>
+    
+   
+  
+    <mat-table [dataSource]="dataSourceUser" >
+        <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column.id">
+         <th mat-header-cell *matHeaderCellDef   [ngClass]="getClassColumn(column.id)">{{column.label}}</th>
+         <td  mat-cell *matCellDef="let user"[ngClass]="getClassColumn(column.id)"  class="user"  >
+         
+            <!-- to specify each image -->
+            <ng-container *ngIf="column.id==='image'">
+              <img [src]="user?.image" class="product-image"   />
+            </ng-container>
+            <ng-container  *ngIf="column.id==='Actions'">
+            
+                <!-- Add your action buttons here -->
+               <div class="Actions">
+                  <button mat-icon-button color="primary"  class="btnAction"  (click)="DeleteUser(user.actions.delete,user.name)">
+                      <span class="delete">Delete</span>
+                      <mat-icon  class="delete">delete</mat-icon>
+                    </button>
+                
+                    <button mat-icon-button color="primary"  class="btnAction" (click)=" ViewUser(user,user.actions.view)">
+                      <span class="view">View</span>
+                      <mat-icon class="view">pageview</mat-icon>
+                    </button>
+               </div>
+            </ng-container>
+            <ng-container *ngIf="column.id!=='image'&&column.id!=='Actions'">
+          <div class="hero"> {{user[column.id]}}</div>
+            </ng-container>
+  
+  
+         </td>
+        </ng-container>
+      
+        <mat-header-row *matHeaderRowDef="getColumnIds(displayedColumns)"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: getColumnIds(displayedColumns)"></mat-row>
+      </mat-table>
+  
+    
+   
+  </ng-container>
+  
+  
+  
+  <ng-container *ngIf="url==='product'">
+    <div class="addition">
+      <button mat-button class="add" routerLink="/addproduct"> 
+        <span>+</span> 
+      </button>
+      <span class="name">Add Product</span>
+    </div>
+      <mat-table [dataSource]="dataSourceProduct">
+          
+          <ng-container  *ngFor="let column of displayedColumnsProduct" [matColumnDef]="column.id" >
+              <th mat-header-cell *matHeaderCellDef> {{ column.label }} </th>
+              <td mat-cell *matCellDef="let product">
+                <!-- Special template for the 'img' column -->
+                <ng-container *ngIf="column.id === 'img'" >
+                 
+                   
+                      <img [src]="product.img" alt="Product Image" class="product-image" >
+                   
+                
+                </ng-container>
+  
+                <ng-container  *ngIf="column.id==='Actions'">
+              
+                    <!-- Add your action buttons here -->
+                   <div class="Actions" >
+                      <button mat-icon-button color="primary"  class="btnAction" (click)="DeleteProduct(product.actions.delete,product.cat,product.title)" >
+                          <span class="delete">Delete</span>
+                          <mat-icon  class="delete">delete</mat-icon>
+                        </button>
+                    
+                        <button mat-icon-button color="primary"  class="btnAction" (click)="ViewProduct(product)">
+                          <span class="view" >View</span>
+                          <mat-icon class="view">pageview</mat-icon>
+                        </button>
+                   </div>
+                </ng-container>
+                <!-- Default template for other columns -->
+                <ng-container *ngIf="column.id !== 'img'&&column.id!=='Actions'">
+                {{ product[column.id] }}
+                </ng-container>
+              </td>
+            </ng-container>
+          
+            <!-- Set up column templates -->
+            <tr mat-header-row *matHeaderRowDef=" getColumnIds(displayedColumnsProduct)">
+            <tr mat-row *matRowDef="let row; columns:  getColumnIds(displayedColumnsProduct)"></tr>
+      </mat-table>
+  </ng-container>
+  
+</ng-template>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 25, 50]" showFirstLastButtons></mat-paginator>
+

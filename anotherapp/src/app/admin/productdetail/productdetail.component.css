@@ -1,0 +1,158 @@
+.model{
+    width: 600px;
+     height: 600px;
+     box-shadow: 10px 5px 5px rgb(7, 6, 6,0.4);
+     margin-top: 30px;
+     position: relative;
+     overflow-y: auto;
+ 
+}
+.content{
+  
+    
+    padding: 20px ;
+   
+}
+.model .btn{
+    position: absolute;
+    bottom: 10px;
+    right: 30px;
+    background-color: red;
+    color: white;
+}
+.content img{
+    width: 300px;
+    height: 300px
+}
+
+.edit{
+    
+    background-color: antiquewhite;
+    color: rgb(5, 5, 5);
+    width: 100px;
+    padding: 10px;
+}
+.iconedit{
+   width: 20px;
+   height: 20px;
+   background-color: green;
+   color:white ;
+   border-radius: 50%;
+   padding: 2px;
+}
+/* comment content */
+.conatainerComment{
+    display: flex;
+    flex-direction: column;
+     gap:10px ;
+     padding: 20px 0px;
+}
+.conatainerComment .userInfo{
+   display : flex ;
+   align-items: center;
+   gap:10px;
+   
+ 
+}
+.conatainerComment .eachPartComment{
+ border: 1px solid gray;
+ background-color: azure;
+ padding: 10px;
+ display: flex;
+ flex-direction: column;
+ gap:10px ;
+ max-height: 80px;
+ overflow-y: auto;
+ position:relative ;
+
+}
+.userInfo .img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.userInfo span{
+    font-size: 20px ;
+    font-weight: 400;
+}
+
+ .eachPartComment .deletebtn{
+   position: absolute;
+     bottom:20px;
+    right: 0;
+    background-color: none;
+}
+/* action add comment */
+.other{
+    display: flex;
+    gap: 50px 30px;
+    align-items: flex-start;
+    margin-top: 10px;
+}
+.actionAddComment{
+    display: flex;
+   
+    align-items: center;
+    gap:10px
+}
+.fieldComment{
+    position: relative;
+    margin-top: 10px ;
+}
+.iconcomment{
+    position:absolute;
+    top:20px ;
+    left :50%;
+    color: blue;
+}
+.actionAddComment .addComment{
+    background-color: rgb(72, 72, 255);
+    padding: 7px 10px;
+    text-align: center;
+    border-radius: 10px;
+    width: 120px;
+    color: white;
+    font-size: 20px;
+    border: none;
+    cursor: pointer;
+}
+/* style info user */
+.user{
+    display: flex;
+    align-items: center;
+    gap:10px
+}
+.user .img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.user span{
+    font-size: 20px;
+    font-weight: 400;
+}
+/* media querry device large */
+
+/* media querry device meduim */
+
+@media only screen and (max-width: 750px){
+    .model{
+        width: 100%;
+    }
+    .model .btn{
+       
+        position: absolute;
+        width: 50px ;
+        
+       left: 20px
+         
+      
+    }  
+  
+}
+@media only screen and (max-width: 400px){
+    .content img{
+        width: 100%;
+    }
+    
+}

@@ -1,0 +1,32 @@
+<div class="contents">
+    <!-- product-detail.component.html -->
+<h2 mat-dialog-title class="title">Product Details</h2>
+<mat-dialog-content>
+    <div class="user">
+   <div> <img  [src]="'assets/uploads/'+data.product.image"  class="img"/>
+    <p><strong>Name:</strong>{{data.product.name}}</p>
+    <p><strong>Email:</strong> {{data.product.email}}</p>
+  </div>
+  <button [routerLink]='["/adduser"]' mat-dialog-close  [queryParams]="{name:data.product.name,email:data.product.email,image:data.product.image,id:data.product.id}"    mat-button><mat-icon style="color: white;background-color: green;">edit</mat-icon></button>
+ 
+
+    </div>
+    <ng-container *ngIf="paginationPost.length>0">
+      <div class="product" *ngFor="let item of paginationPost">
+        <img [src]="'assets/uploads/'+ item.img" class="imageproducts" />
+        <p><strong>Title:</strong> {{item.title}}</p>
+        <p><strong>description:</strong>{{item.description}}</p>
+        <p><strong>Category</strong> :{{item.cat}}</p>
+          <button mat-dialog-close [routerLink]="['/addproduct']"[queryParams]="{id:item.id,desc:item.description,cat:item.cat,img:'assets/uploads/'+ item.img,title:item.title}" color="primary" style="color: green; " mat-button> <strong>edit</strong> <mat-icon>edit</mat-icon></button>
+    </div>
+    <div class="btn">
+        <button [ngClass]="{'disbledBtn':initialPage-1<0,'previous':initialPage>0}"  [disabled]="initialPage-1<0"  (click)="previousPage()">Previous</button>
+        <button [ngClass]="{'disbledBtn':initialPage>nbrPage-2,'next':initialPage<nbrPage-1}" [disabled]="initialPage>nbrPage-2"   (click)="nextPage()">Next</button>
+    </div>
+    </ng-container>
+  <!-- Add more product details as needed -->
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button style="color: red;"  mat-button mat-dialog-close >Close</button>
+</mat-dialog-actions>
+</div>

@@ -1,0 +1,13 @@
+<ngb-carousel class="carousel" [interval]="5000" [ngStyle]="{backgroundColor:(isDrak$ | async)?'rgb(59, 52, 52)':'rgb(32, 13, 104)'}" >
+    <ng-template  ngbSlide *ngFor="let item of darkMode.product$ | async" >
+     <div class="listSlide" >
+        <img [src]="'assets/uploads/'+ item.img" alt="{{item.title}}" >
+   
+          <h3>{{item.title}}</h3>
+          
+      
+     </div>
+     <p class="desc">{{item.description}}</p>
+    </ng-template>
+  </ngb-carousel>
+  

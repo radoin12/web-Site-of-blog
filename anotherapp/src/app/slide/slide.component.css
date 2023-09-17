@@ -1,0 +1,67 @@
+/* styles.css (ou styles.scss) */
+
+.dark-mode {
+    background-color: #333; /* Fond sombre */
+    color: #fff; /* Texte en blanc */
+    /* Ajoutez d'autres styles de thème sombre au besoin */
+  }
+  
+/* slide.component.css */
+/* Style du carousel */
+.carousel {
+
+    overflow: hidden; 
+    min-height: 450px;
+    padding: 20px;
+    position: relative;
+    
+   
+  }
+  
+  /* Style des diapositives individuelles */
+  .listSlide {
+    display: flex; /* Affichage flex pour les éléments horizontaux */
+    flex-direction: column; /* Affichage horizontal */
+    overflow: hidden;
+    gap:10px ;
+    margin-bottom: 10px;
+    align-items: center;
+    width: 100%; /* Largeur minimale de chaque diapositive pour remplir l'écran */
+    padding: 0 10px; /* Espacement horizontal entre les diapositives (ajustez selon vos besoins) */
+  }
+  .listSlide img{
+    width:40%;
+    height: 250px;
+    border: 1px solid white;
+    border-radius: 5px;
+
+  }
+  .listSlide h3{
+    color: rgb(132, 249, 247);
+  }
+   .desc{
+    color:#fff ;
+   
+    font-size: 20px ;
+    font-weight: 400;
+    position: relative;
+    animation: rado 5s infinite;
+    animation: rado 5s infinite;
+    width: 80%;
+    text-align: center;
+    line-height: 1.17;
+   margin-top: 50px;
+   
+  }
+  @keyframes rado{
+   0%{left:0px;bottom: 20px;}
+
+  
+   100%{left:170px;bottom: 20px;}
+ 
+  }
+
+
+  
+  
+  

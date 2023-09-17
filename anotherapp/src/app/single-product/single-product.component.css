@@ -1,0 +1,186 @@
+
+.post{
+  display: flex;
+ 
+  padding: 50px 30px;
+
+  position:sticky;
+  top:50px;
+
+ 
+  ;
+}
+.nopost{
+    padding-bottom: 300pw;
+}
+.withpost{
+ padding-bottom: 30px;
+}
+.post .container{
+    flex:3 ;
+    
+  
+}
+
+
+
+.cardWhite{
+  background-color: rgb(251, 253, 255);
+  color:black
+}
+.cardBlack{
+  background-color: rgba(43, 43, 43, 0.879);
+  color:white
+}
+
+.card{
+    width: 550px;
+   border-radius: 10px;
+  
+    max-height: 1100px;
+    overflow-y: auto;
+    padding: 10px 10px 20px 10px;
+    box-shadow: 10px 5px 5px rgb(53, 47, 47,0.4);
+    display: flex;
+    flex-direction: column;
+
+
+    gap: 10px;
+  
+  
+}
+.card img{
+    width: 85%;
+    height: 300px;
+    margin:20px auto;
+}
+.userInfo {
+  display: flex;  
+  align-items: center;
+  gap: 10px;
+}
+.userInfo .user{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.userInfo.user p{
+    font-weight: 400;
+    font-size: 22px;
+}
+.card h2{
+color: #3498db;
+text-align: center;
+}
+.delete{
+    background-color:rgb(250, 50, 50,0.8) ;
+    font-size: 25px;
+    cursor: pointer;
+    color: rgb(214, 210, 210); 
+    text-align: center;
+    padding: 5px;
+    width: 90px;
+}
+.delete:hover{
+   
+   background-color: red;
+   font-size: 25px;
+   cursor: pointer;
+}
+.edit{
+    color: rgb(214, 210, 210); 
+    font-size: 25px;
+    cursor: pointer;
+    background-color: rgb(25, 99, 25);
+    text-align: center;
+    padding: 5px;
+    width: 70px;
+}
+.edit:hover{
+    background-color: green;
+}
+.userInfo .user img{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: none ;
+
+}
+
+  .comment .imgsmall{
+    width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none  
+}
+.comment .btn{
+    background-color: blue;
+    width: 120px;
+    color:white;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+.userInfo .icon{
+    display: flex;
+    align-items: center;
+    gap:10px
+}
+
+/* Loading indicator container */
+.loading-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  /* Loading spinner */
+  .loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+  }
+  
+  /* Loading spinner animation */
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+    /* comment */
+ .comment .imgsmall,.btn {
+  margin: 10px;
+  }
+  .error{
+    color:red ;
+    padding: 5px;
+  }
+  /* media querry */
+  @media screen and (max-width:1200px) {
+   
+  .post .container .card{
+    width: 370px;
+    
+  
+}
+
+  }
+  @media screen and (max-width:900px) {
+    .post{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap:30px ;
+      
+    }
+    .card{
+      width: 100%;
+     max-height: none;
+      
+      
+    }
+  }
+  

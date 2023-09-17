@@ -1,0 +1,25 @@
+<div class="test">
+    
+
+
+<div *ngFor="let  item of comments " class="content_comment">
+
+    <div  [ngClass]="{'item':true,'darkMode':dark$|async,'whiteMode':!(dark$|async)}">
+        <img [src]="'assets/uploads/'+ item.user_image" class="img"  [ngStyle]="{'border-top':(dark$|async)?'1px solid white': '1px solid pink'}"  />
+        <p>{{item.user_name}}</p>
+        
+       </div>
+       <p>{{item.comments_content}}</p>
+      
+       <ng-container *ngIf="!item.createdAt_comment;else dateContent">
+        <p>instant</p>
+       </ng-container>
+      <ng-template #dateContent>
+        <span class="date">{{getDate(item.createdAt_comment)}}</span>
+      </ng-template>
+       <button  (click)=" deleteComment(item.id,item)" *ngIf="decode?.id===item?.user_id||decode?.isAdmin" class="btn" type="submit" mat-button><mat-icon style="color:red">delete</mat-icon></button>
+
+
+  
+  </div>
+</div>

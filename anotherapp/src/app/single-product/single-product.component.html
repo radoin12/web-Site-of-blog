@@ -1,0 +1,66 @@
+
+
+
+
+<ng-container *ngIf="loading;else content">
+  <div class="loading-container">
+    <span class="loading-spinner"></span>
+  </div>
+
+</ng-container>
+<ng-template #content>
+  <div class="post" *ngIf="singlePost" [ngStyle]="{backgroundColor:!(dark$|async)? 'rgb(239, 243, 250)':'rgb(82, 85, 89)'}" >
+    <div class="container">
+       <div class="card" [ngClass]="{'card':true,'cardWhite':!(dark$|async),'cardBlack':dark$|async}">
+          <ng-container *ngIf="singlePost.img">
+            <img [src]="'assets/uploads/'+  singlePost.img" />
+          </ng-container>
+         <h2>{{singlePost.title}}</h2>
+    
+         <p>{{singlePost.description}}</p>
+         <div class="userInfo">
+           <div class="user">
+              <ng-container *ngIf="singlePost.image">
+                  <img [src]="'assets/uploads/'+singlePost.image" />
+              </ng-container>
+             
+             <ng-container *ngIf="singlePost?.name"> <span>{{singlePost.name}}</span></ng-container>
+             
+           </div>
+           <div class="icon"  *ngIf="(userId)=== decodeUser?.id" >
+              
+            <button routerLink="/home" class="delete" (click)=" deleteProduct(singlePost.title,singlePost.cat)">delete</button>
+            <button class="edit" [routerLink]="['/createpost']" [queryParams]="{cat:singlePost.cat,title:singlePost.title,img:singlePost.img,description:singlePost.description,id:id}">edit</button>
+            </div>
+         </div>
+         
+         <p *ngIf="singlePost">Published At:{{calculateTime(singlePost.date)}}</p>
+      <div class="comment">
+        <img class="imgsmall" [src]="'assets/uploads/'+decodeUser?.img" alt="user"/>
+        <mat-form-field>
+          <mat-label>comment</mat-label>
+          <textarea  (focus)="onFocus()" (blur)="onBlur()" [(ngModel)]="desc"    matInput placeholder="add comment..." style="height: 40px;"></textarea>
+          <p class="error" *ngIf="desc === ''&&inputTouched" ><strong>Comment is empty!!</strong></p>
+        </mat-form-field>
+          <button id="img" type="submit" mat-button class="btn"(click)='AddComment()'>
+        <ng-container *ngIf="loading;else comment">
+          <div class="loading-container">
+            <span class="loading-spinner"></span>
+          </div>
+          
+       </ng-container>
+       <ng-template #comment> comment</ng-template> 
+          </button>
+      </div>
+      <comment-content [idProduct]="id"></comment-content>
+    
+       </div>
+      
+    </div>
+     
+     <app-other-posts [cats]="singlePost.cat"></app-other-posts>
+    
+  </div>
+  
+</ng-template>
+

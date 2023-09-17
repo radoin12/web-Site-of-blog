@@ -1,0 +1,33 @@
+.container{
+ display: flex;
+  max-width: 85%;
+  margin: auto;
+  background-color: rgb(69, 68, 135);
+  align-items: center;
+  padding: 10px 10px 20px 10px;
+  justify-content: space-around;
+  box-shadow: 6px 4px 4px rgba(7, 7, 7, 0.6);
+  flex-wrap: wrap;
+  gap:10px
+}
+.container .item{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: center;
+  color:white;
+  font-weight: 400;
+  font-size: 22px;
+  border: 2px solid whitesmoke;
+  width: 120px;
+  padding: 10px 5px;
+  text-align: center;
+  border-radius: 5px;
+
+}
+@media screen and(max-width:950px){
+ 
+  .container .item{
+  width: 250px;
+  }
+}

@@ -1,0 +1,64 @@
+/* Style pour la liste de résultats de la recherche */
+
+  .name{
+
+    cursor: pointer;
+  }
+  
+  .user-list-item {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    padding: 5px 0;
+    justify-content: flex-start;
+    
+  }
+  
+  .user-list-item img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  /* Style pour les liens utilisateur */
+  .user-link {
+    text-decoration: none;
+   
+  }
+  
+  .user-link:hover {
+    text-decoration: underline;
+  }
+  
+.user-listed {
+  
+    width: 100%;
+ 
+   
+   
+    z-index: 111;
+  }
+ 
+  .no-results{
+    color:rgb(216, 195, 245);
+    font-weight: 300;
+    margin-top: 10px;
+  }
+
+  /* dark mode */
+  .darkMode{
+    background-color: #252424;
+    color :rgb(255, 245, 245);
+  }
+  .whiteMode{
+    background-color: #fff; /* Fond blanc */
+    color:black ;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  }
+   /* media querry */
+   
+   @media only  screen and (max-width:800px) {
+       
+   
+}

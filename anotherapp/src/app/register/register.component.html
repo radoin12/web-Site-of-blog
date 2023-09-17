@@ -1,0 +1,19 @@
+
+<div class="register">
+  <h2>Register</h2>
+  <input type="file" (change)=" onselectImage($event)"  />
+  <p *ngIf="!file&&selected===false" style="color: red;"><strong >select your image</strong></p>
+  <input [(ngModel)]="dataUser.name"(blur)="onBlur('name',dataUser.name)" (focus)="onfocusInput('name')"    type="text" placeholder="name" />
+  <p *ngIf="!dataUser.name&&intouchedName" style="color: red;"><strong >name is required</strong></p>
+  <input [(ngModel)]="dataUser.email"    type="email" placeholder="email"(blur)="onBlur('email',dataUser.email)" (focus)="onfocusInput('email')" />
+  <p *ngIf="!dataUser.email&&intouchedEmail" style="color: red;"><strong >email is required</strong></p>
+  <p *ngIf="error!==''&&intouchedEmail" style="color: red;"><strong >email is already exist</strong></p>
+  <input [(ngModel)]="dataUser.password" type="password" placeholder="password" (blur)="onBlur('password',dataUser.password)" (focus)="onfocusInput('password')"/>
+  <p *ngIf="!dataUser.password&&intouchedPassword" style="color: red;"><strong >password is required</strong></p>
+  <p *ngIf="dataUser.password!==''&&dataUser.password.length<6" style="color: red;"><strong >password must have more than 6 caracters</strong></p>
+  <button type="submit" (click)="getUser()">register</button>
+  <div class="linkLogin">
+    <p>you are loged in ?</p> 
+    <a><span>Login</span></a>
+  </div>
+</div>

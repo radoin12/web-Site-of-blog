@@ -1,0 +1,50 @@
+<div class="model">
+ <h2 mat-dialog-title><strong style="color: blue;">Category:</strong>  {{product.blog.cat}}</h2>
+ <mat-dialog-content class="content" >
+    <img [src]="product.blog.img" class="img" />
+    <h2><strong>Title:</strong>    {{product.blog.title}}</h2>
+   <p><strong>description:</strong>   {{product.blog.description}}</p>
+    <p><strong>Created At: </strong> {{product.blog.date}}</p>
+   <button mat-button class="edit" mat-dialog-close [routerLink]="['/addproduct']" [queryParams]="{id:product.blog.id,desc:product.blog.description,cat:product.blog.cat,img:product.blog.img,title:product.blog.title}"> <mat-icon class="iconedit">edit</mat-icon>edit</button>
+  <div class="other">
+   <div class="user">
+     
+      <img [src]=" 'assets/uploads/'+ decodeUser?.img"  class="img" />
+       <span>{{decodeUser?.name}}</span>
+   </div>
+   <div class="actionAddComment">
+
+      <mat-form-field class="fieldComment">
+         <mat-label> comment</mat-label>
+         <textarea (focus)="onFocusComment()" (blur)='onBlurComment()' [(ngModel)]="descComment" matInput placeholder="add comment..."></textarea>
+         <p  style="color: red;" *ngIf="descComment===''&&inputTouched">comment is required</p>
+         <mat-icon *ngIf="!inputTouched" class="iconcomment">comment</mat-icon>
+      </mat-form-field>
+      <button  (click)=' AddComment()'class="addComment" >comment</button>
+     </div>
+  </div>
+  
+  
+   <div class="conatainerComment">
+      <div class="eachPartComment" *ngFor="let item of commentContent">
+
+         <div class="userInfo">
+           <img [src]="'assets/uploads/' + item.user_image "   alt="" class="img"/>
+           <span>{{item.user_name}}</span> 
+          
+           
+         </div>
+         <p>{{item.comments_content}}</p>
+           
+
+            <button (click)="deleteComment(item.id,item.comments_content)" *ngIf="item.user_id=== decodeUser?.id||decodeUser?.isAdmin" class="deletebtn" mat-button ><mat-icon style="color: red;">delete</mat-icon></button>
+         
+        
+        </div>
+   </div>
+ 
+ </mat-dialog-content>
+ <mat-dialog-actions>
+    <button  class="btn" mat-button mat-dialog-close>close</button>
+ </mat-dialog-actions>
+</div>

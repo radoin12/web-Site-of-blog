@@ -1,0 +1,82 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+     align-items: flex-start;
+    border: 1px solid ;
+    padding: 30px ;
+    width: 400px;
+    min-height: 30vh;
+    margin: auto;
+    box-shadow: 8px 5px 5px rgb(14, 14, 14,0.3);
+   
+  }
+  
+ 
+
+  
+  
+  /* Style error messages */
+  mat-error {
+    color: #f44336; /* Red text color for error messages */
+    font-size: 14px;
+    padding: 20px;
+    width: 500px;
+  
+  }
+  .red{
+   border: 1px solid red;
+  }
+ 
+  .form input{
+    padding: 7px ;
+    width: 200px;
+    display: block;
+  }
+
+ 
+  .form .label{
+ 
+      font-size: 20px;
+      font-weight: 400;
+      color: gray;
+      padding-right: 80px;
+  }
+ 
+
+  
+  
+  
+
+  .btn{
+    width: 150px;
+    margin: auto;
+    padding: 7px 10px;
+    background-color: green;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px;
+  }
+  /* Loading indicator container */
+.loading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+/* Loading spinner */
+.loading-spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-top: 4px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

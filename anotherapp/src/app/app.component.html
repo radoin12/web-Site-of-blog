@@ -1,0 +1,5 @@
+
+<app-navbar *ngIf="!(adminservice.isAdmin$ | async) "></app-navbar>
+<app-nav-admin *ngIf="(adminservice.isAdmin$ | async) "></app-nav-admin>
+
+<router-outlet *ngIf="!(adminservice.isAdmin$ | async) "></router-outlet>

@@ -1,0 +1,90 @@
+
+
+<ng-container *ngIf="load;else content">
+  <div class="loading-container " >
+  <p class="loading-spinner "></p>
+  </div>
+</ng-container>
+
+<ng-template #content>
+  <form [formGroup]="formGroup" class="form"  (ngSubmit)="onSubmit()">
+    <div class="fuull-width">
+        <mat-label class="label">Image</mat-label>
+        <input type="file" (change)="onImageSelected($event)" >
+  
+        
+        <mat-error *ngIf="formGroup.get('image')?.hasError('invalidFileType')">
+          Invalid file type. Please select an image (JPEG, PNG, GIF).
+        </mat-error>
+      </div>
+
+
+      <div class="name">
+        <mat-label class="label">Name</mat-label>
+        <input matInput type="text"  (focus)="onfocus('name')" (blur)="onBlur(formGroup.get('name')?.value,'name')"   formControlName="name" placeholder="Enter name">
+        <mat-error *ngIf="formGroup.get('name')?.hasError('required')&&inputTouchedName">
+            Name is <strong>required</strong>
+           </mat-error>
+           <mat-icon  style="color: green;"  *ngIf="!formGroup.get('name')?.hasError('required')">check_circle</mat-icon>
+          </div>
+    <div >
+      
+      <mat-label class="label">Email</mat-label>
+      <input matInput (focus)="onfocus('email')" (blur)="onBlur(formGroup.get('email')?.value,'email')" type="email" matInput formControlName="email" 
+             placeholder="Ex. pat@example.com">
+      <mat-error *ngIf="formGroup.get('email')?.hasError('email') && !formGroup.get('email')?.hasError('required')">
+        Please enter a valid email address
+      </mat-error>
+      <mat-error *ngIf="formGroup.get('email')?.hasError('required')&&inputTouchedEmail">
+        Email is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="emailExist&&!formGroup.get('email')?.hasError('required')"><strong>{{emailExist}}</strong></mat-error>
+      <mat-icon  style="color: green;"  *ngIf="!formGroup.get('email')?.hasError('email')&&!formGroup.get('email')?.hasError('required')&&!emailExist">check_circle</mat-icon>
+    </div>
+    <div>
+          
+            <mat-label class="label">Password</mat-label>
+            <input  matInput (focus)="onfocus('password')"   (blur)="onBlur(formGroup.get('password')?.value,'password')"  type="password" matInput formControlName="password" placeholder="Enter name">
+         
+            <mat-error *ngIf="formGroup.get('password')?.hasError('required')&&inputTouchedPassword"  >
+                password is <strong>required</strong>
+               </mat-error>
+           
+           <mat-error  *ngIf="formGroup.get('password')?.hasError('pattern')&&!formGroup.get('password')?.hasError('required')">
+            Password must contain at least 8 characters, including an uppercase letter, a lowercase letter, a digit, and a special character.
+        </mat-error>
+        <mat-icon style="color: green;"  *ngIf="!formGroup.get('password')?.hasError('pattern')&&!formGroup.get('password')?.hasError('required')">check_circle</mat-icon> 
+      </div>
+  
+    
+
+   <ng-container *ngIf="!locationUser?.id">
+    <button type="submit" class="btn">
+      <ng-container *ngIf="!load;else loading">
+        Add
+      </ng-container>
+      <ng-template #loading>
+        <div class="loading-container " >
+          <span class="loading-spinner "></span>
+          </div>
+      </ng-template>
+    </button>
+   </ng-container>
+   <ng-container *ngIf="locationUser?.id">
+    <button type="submit" class="btn">
+      <ng-container *ngIf="!load;else loading">
+        update
+      </ng-container>
+      <ng-template #loading>
+        <div class="loading-container " >
+          <span class="loading-spinner "></span>
+          </div>
+      </ng-template>
+    </button>
+   </ng-container>
+   
+    <p *ngIf="errorMessage&&!inputTouchedName&&!inputTouchedEmail&&!inputTouchedPassword" class="error-message">{{ errorMessage }}</p>
+  </form>
+  
+  
+</ng-template>

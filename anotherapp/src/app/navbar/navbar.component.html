@@ -1,0 +1,58 @@
+
+<div class="tolbar">
+    <button    mat-icon-button id="toggleSidebarNav"><mat-icon>apps</mat-icon></button>
+</div>
+<div class="navbar" [ngStyle]="{'background-color':!(isdark$|async)?'rgb(92, 92, 239)':'black'}">
+    <ul class="container">
+    <ng-container *ngIf="id">
+      <div class="search-bar">
+        <input  [(ngModel)]="search" (ngModelChange)="onSearch()" placeholder="search..."/>
+        <app-serch-user class="user-list" *ngIf="listeIsopen" (closeList)="closeSearchList()"  [search]="usersList" [othersearch]="search" ></app-serch-user>
+      </div>
+    </ng-container>
+      
+      
+        <a class="home"><li routerLink="/home">Home</li></a>
+        <a [routerLink]="['/home']" [queryParams]="{ cat: 'cinema',page:0 }">Movie</a>
+        <a [routerLink]="['/home']" [queryParams]="{cat:'art',page:0}">article</a>
+        <a [routerLink]="['/home']" [queryParams]="{cat:'science',page:0}">science</a>
+        <a [routerLink]="['/home']" [queryParams]="{cat:'technology',page:0}">technology</a>
+        <a [routerLink]="['/home']" [queryParams]="{ cat: 'Food',page:0 }">Food</a>
+        <a [routerLink]="['/home']" [queryParams]="{cat:'design',page:0}">design</a>
+        
+       <ng-container *ngIf="id===null">
+        <a><li routerLink="/register">Register</li></a>
+        <a><li routerLink="/login">Login</li></a>
+       </ng-container>
+        <ng-container *ngIf="id">
+            <a ><li routerLink="/createpost">Create</li></a>
+            <span class="span" [routerLink]="['/profile',id]">profile</span>
+           
+            <mat-icon [ngStyle]="{color:(isdark$ | async)?'white':'black'}" aria-hidden="false" class="custom-icon" [matMenuTriggerFor]="menu" mat-raised-button
+          [matBadge]="count&&count.post_count  ? count.post_count : null"
+          [matBadgeColor]="count&&count.post_count  ? 'accent' : 'primary'">notifications</mat-icon>
+
+  
+  
+            
+           
+          
+            <span class="span"(click)="Logout()">Logout</span>
+        </ng-container>
+       <mat-icon class="dark" (click)='ToglleDark()'[ngClass]="{'dark':(isdark$ | async),'darkBlack':!(isdark$|async)}">{{(isdark$|async)?'brightness_4':'brightness_7'}}</mat-icon>
+    </ul>
+
+    <mat-menu #menu="matMenu" class="Menu">
+        <div class="listMMenu" *ngFor="let item of notification | async">
+         <li class="infoNotify" (click)="readbleNotify(item.notification_id)" [ngClass]="{'readble':!item?.isread}">
+          <div class="notify"  (click)=navigateToReference(item.type,item.postId,item.userId,item.notification_id)>
+           <img  class="imgUser" [src]="'assets/uploads/'+item.imageUser" alt=""/>
+            <span>{{item.userName}}</span>
+            <p class="message">{{item.message}}</p>
+          </div>
+          <span class="date">{{getDate(item.createdAt)}}</span>
+           <mat-icon class="delete" (click)="deleteNotify(item.notification_id)">delete</mat-icon>
+         </li>
+        </div>
+       </mat-menu>
+</div>

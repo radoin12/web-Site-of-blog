@@ -1,0 +1,83 @@
+<div >
+    <ng-container *ngIf="load; else cont">
+      <div class="loading-container">
+        <div class="loading-spinner" ></div>
+      </div>
+   
+    </ng-container>
+ 
+   <ng-template #cont>
+    <form [formGroup]="formGroup" class="container" (ngSubmit)="onSubmit()">
+    
+      <div  class="form">
+        <mat-form-field class="field">
+            <mat-label>Title</mat-label>
+            <input  matInput type="text" (focus)="onFocusInput('title')" (blur)="onBlurInput(formGroup.get('title')?.value,'title')" formControlName="title" placeholder="Enter Title">
+            <p  class="error" *ngIf="formGroup.get('title')?.hasError('required')&&inputTouchedTitle" ><strong>Title is required</strong></p>
+            <p class="error" *ngIf="formGroup.get('title')?.hasError('customError')">title must be less than 10 caracters!</p>
+          </mat-form-field>
+        <mat-form-field class="field">
+            <mat-label>Description</mat-label>
+            <textarea  formControlName="description" rows="10" cols="50" matInput placeholder="Ex. description of article you create..." (focus)="onFocusInput('desc')" (blur)="onBlurInput(formGroup.get('description')?.value,'desc')"></textarea>
+            <p class="error" *ngIf="formGroup.get('description')?.hasError('required')&&inputTouchedDescription"><strong>Description is required</strong></p>
+            <p class="error" *ngIf="formGroup.get('description')?.hasError('customErrordef')"><strong>desciption must contains less than 250 letters</strong></p>
+        </mat-form-field>
+       </div>
+       <div class="rigth">
+               <ng-container *ngIf="location?.id">
+                <h2 class="title" >publish</h2>
+               </ng-container>
+               <ng-container *ngIf="!location?.id">
+                <h2 class="title" >Update</h2>
+               </ng-container>
+        
+   
+            <h2 class="title">upload image</h2>
+            <div class="contentimage">
+                <ng-container *ngIf="selectImage&&!changeImage" >
+                    <img class="img"   [src]=" location.img" />
+                </ng-container>
+             
+                <mat-label class="label">Image</mat-label>
+               
+                <input  type="file" (change)="onselectImage($event)">
+          
+                
+               <p class="error"  *ngIf="!selectImage&&selected">select your image</p>
+            </div>
+ 
+           <h2 class="title">category</h2>  
+       
+        <mat-radio-group formControlName="selectedOption" class="radio">
+          <mat-radio-button *ngFor="let option of radioOptions" [value]="option.value"  >
+            <span class="option">{{ option.label }}</span>
+          </mat-radio-button>
+        </mat-radio-group>
+        <p class="error" *ngIf="formGroup.get('selectedOption')?.hasError('required')&&inputTouchedCat">
+          Please select an option.
+        </p>
+      
+      
+       
+        <ng-container *ngIf="!location?.id">
+            <button type="submit" mat-button class="btn">
+                <mat-icon style="background-color: green;">add</mat-icon>
+                publish
+              </button>
+        </ng-container>
+        <ng-container *ngIf="location?.id">
+            <button type="submit" mat-button class="btn">
+                <mat-icon style="background-color: green;">edit</mat-icon>
+               edit
+              </button>
+        </ng-container>
+      
+         
+          
+          
+    </div>
+     
+   </form>
+   </ng-template>
+ 
+</div>

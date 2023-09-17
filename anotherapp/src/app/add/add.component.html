@@ -1,0 +1,79 @@
+
+
+
+
+
+<div [ngClass]="{'form':true,'darkMode':dark$|async,'whiteMode':!(dark$|async)}">
+   <div class="left">
+    
+      <input  class="item"  [(ngModel)]="DataEventProduct.title"   type="text" placeholder="Title" />
+      <p  style="color: red;" *ngIf="DataEventProduct.title===''&&errorTitle">title is required</p>
+   <textarea class="area" [(ngModel)]="DataEventProduct.description"   cols="70" rows="20" placeholder="description"></textarea>
+   <p  style="color: red;" *ngIf="DataEventProduct.description===''&&errorDesc">description is required</p>
+   <p  style="color: red;" *ngIf="DataEventProduct.description.length>400&&errorDesc">description must be less then 400 caracters</p>
+   </div>
+   <div class="rigth"   >
+      <h2 *ngIf="!location">publish</h2>
+      <h2 *ngIf="location">edit</h2>
+     <div class="upload">
+      <label >Upload Image</label>
+      <input  (ngModelChange)="file" (change)="HandlChangeImg($event)" id="file" type="file"  />
+      <p  style="color: red;" *ngIf="!file&&!ischanged">select your image</p>
+     </div>
+      
+   
+ 
+     <h3>categories</h3>
+        <div  class="options">
+            
+            <div class="radio">
+              
+            <input type="radio" checked="cinema"  value="cinema" [(ngModel)]="DataEventProduct.cat"  /> 
+            <label>cinema</label>
+            </div>
+            <div class="radio">
+               
+               <input type="radio" checked="art"  value="art" [(ngModel)]="DataEventProduct.cat"  /> 
+               <label>art</label>
+            </div>
+            <div class="radio">
+                
+            
+            <input type="radio" checked="technology"  value="technology" [(ngModel)]="DataEventProduct.cat"  /> 
+            <label>technology</label>   
+         </div>
+           
+           <div class="radio">
+           
+            <input type="radio" checked="science"  value="science" [(ngModel)]="DataEventProduct.cat"  /> 
+            <label>science</label>
+           </div>
+           <div class="radio">
+            
+            <input type="radio" checked="Food"  value="Food" [(ngModel)]="DataEventProduct.cat"  /> 
+            <label>Food</label>
+         </div>
+            <div class="radio">
+              
+            <input type="radio" checked="design"  value="design" [(ngModel)]="DataEventProduct.cat"  /> 
+            <label>design</label>
+            </div>
+          
+          </div>
+          <p  style="color: red;" *ngIf="DataEventProduct.cat===''&&errorCat">categorie is required</p>
+          <button *ngIf="!location" type="button" (click)="clickHandler()" class="item">
+            <span >publish</span>
+           
+          </button>
+          <button *ngIf="location" type="button" (click)="editHandler()" class="item">
+            <span >edit</span>
+           
+          </button>
+   </div>
+  
+   
+
+  
+   
+   
+</div>

@@ -1,0 +1,11 @@
+<div class="search-results">
+    <ul  [ngClass]="{'user-listed':true,'whiteMode':!(dark$|async),darkMode:(dark$|async)}" *ngIf="search.length>0&&othersearch!==''">
+      <li class="user-list-item" *ngFor="let user of search">
+      <div [routerLink]="['/profile', user.id]" (click)="closeSearchList()">
+        <img [src]="'assets/uploads/'+ user.image" alt="Avatar" />
+        <span class="name"  class="user-link" [ngStyle]="{color:!(dark$| async)?' color: #5c5a5a':'white' }">{{ user.name}}</span>
+      </div>
+      </li>
+    </ul>
+    <p class="no-results"  *ngIf="search.length===0&&othersearch!==''">Aucun utilisateur trouvé.</p>
+  </div>

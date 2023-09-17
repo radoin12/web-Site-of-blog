@@ -1,0 +1,66 @@
+<ng-container *ngIf="load ;else datauser">
+<div class="loading-container ">
+  <span class="loading-spinner"></span>
+</div>
+</ng-container>
+<ng-template #datauser>
+  
+  <div class="user-profile-container" *ngIf="userProfile$ | async as userProfile">
+    <!-- Barre latérale gauche (informations sur l'utilisateur) -->
+    <div class="tolbar">
+      <button (click)="toggleSidebars()"    mat-icon-button id="toggleSidebarButton"><mat-icon>apps</mat-icon></button>
+    </div>
+    <div class="user-info-sidebar" [ngStyle]="{'background-color':dark$?'#323131':'#0a37a9'}" >
+      
+      <div class="user-info-content">
+        
+          <img [src]="'assets/uploads/'+userProfile.image" alt="" class="user-info-avatar"/>
+      
+        <div class="user-info-name">Nom de l'utilisateur:  {{userProfile.name}}</div>
+      </div>
+      <h2 class="ok">historique</h2>
+      <!-- Autres informations sur l'utilisateur -->
+    </div>
+  
+    <!-- Barre latérale droite (publications de l'utilisateur) -->
+    <div class="user-posts-sidebar" >
+      <!-- Liste des publications de l'utilisateur -->
+      <div [ngClass]="{'product':true,'darkBlack':dark$,'whiteMode':!dark$}" *ngFor="let item of userProfile.post  ">
+            <div class="details">
+              <div class="product-image" [ngStyle]="{'box-shadow':!dark$?'10px 5px 5px rgba(5, 5, 5, 0.1),-5px 5px 5px rgba(5, 5, 5, 0.1)':'4px 2px 1px #ddd,-3px 2px 1px #ddd'}">
+                <img [src]="'assets/uploads/'+ item.img" alt="product"/>
+              </div>
+              <div class="product-details">
+                <div class="product-name ">{{item.title}}</div>
+                <div class="user-post-content">{{item.description}}</div>
+                <p class="product-date">Date de sortie : 12 septembre 2023</p>
+                <button class="like-button"><i class="fas fa-heart"></i> J'aime</button>
+              </div>
+            </div>
+        <div [ngClass]="{'product-comments':true,'darkBlack':dark$,'whiteMode':!dark$}">
+       
+          <div class="comment-list" *ngFor="let comment of item.comment">
+              <!-- La liste des commentaires sera affichée ici -->
+            <div>
+            <div class="user_comment" [routerLink]="['/profile',comment.userId]">
+              <img [src]="'assets/uploads/'+ comment.image" />
+              <h2>{{comment.name}}</h2>
+            </div>
+              <p>{{comment.content}}</p>
+              <p>{{dateComment(comment.createdAt)}}</p>
+            </div>
+         
+          </div>
+          <div class="comment-add" [ngStyle]="{'border':dark$?'1px solid white':'1px solid black'}">
+            <input  [(ngModel)]="content" type="text" class="comment-input" placeholder="Ajouter un commentaire...">
+            <button class="comment-button" (click)="addComment(item.cat,item.id,item.title)">Ajouter un commentaire</button>
+           </div>
+        </div>
+      </div>
+     
+      <!-- Ajoutez d'autres publications ici -->
+    </div>
+  </div>
+  
+
+</ng-template>

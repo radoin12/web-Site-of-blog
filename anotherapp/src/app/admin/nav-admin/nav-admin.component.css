@@ -1,0 +1,252 @@
+
+.nav{
+    background-color: rgb(48, 112, 239);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+  
+}
+.items{
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+    gap:50px
+  
+}
+.items li{
+    list-style-type: none;
+}
+.items a, .spanNav{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 22px;;
+    font-weight: 400;
+}
+
+.container{
+    display: flex;
+   gap: 30px;
+}
+.content{
+    flex:5 ;
+    margin-top: 70px;
+}
+.drawermain{
+    flex:1 ;
+    min-height: 90vh;
+    height: 100%;
+    border-right: 0.5px solid gray;
+}
+.left{
+padding: 10px;
+}
+.item{
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    justify-content: flex-start;
+}
+.item:hover{
+    background-color: aliceblue;
+}
+.admin{
+    display: flex;
+    align-items: center;
+    gap:10px
+}
+.admin .img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+   
+
+}
+
+.rigth{
+    display: flex;
+    align-items: flex-start ;
+    flex-direction: column;
+    padding: 20px;
+    gap:10px ;
+    width:200px ;
+    align-items: center;
+   
+   
+   
+}
+.lists{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    position:relative;
+    top: 5px;
+    left: -5px;
+    transition: 2s;
+    
+}
+.show{
+    display:flex ;
+    align-items: center;
+    gap:3px
+}
+.up{
+    transform:rotate(180deg) translateY(-5px);
+    transition: 1s;
+   
+}
+.down{
+    transform:rotate(0deg) translateY(0px); 
+    transition: 1s;
+}
+.lists span{
+    width: 100px;
+    cursor: pointer;
+}
+.List{
+    background-color: rgb(227, 227, 227);
+    display: flex;
+    flex-direction: column;
+    gap:1px
+}
+.mat-menu{
+  
+    border-bottom: 0.5px solid gray;
+    padding: 0 10px ;
+    position: relative;
+   
+
+}
+.msg{
+   
+    font-size: 15px;
+ 
+   
+
+}
+.userComment{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid;
+    height: 150px;
+    position: relative;
+
+   
+}
+.info{
+    display: flex;
+    gap:20px ;
+    flex-wrap: wrap;
+   
+ 
+  
+  
+   
+}
+
+.info .img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.readble{
+    background-color: gray;
+    color:white ;
+    padding: 5px;
+}
+/* icon delete */
+.listeNotify{
+    position: absolute;
+    right: 0px;
+    bottom: 5px;
+    color: black;
+}
+.modelButton{
+  
+
+   position: absolute ;
+    bottom: 5px;
+   color: rgb(76, 73, 73);
+    display: flex;
+    align-items: center;
+
+    
+}
+.modelButton .delete{
+    color:red
+}
+
+
+  .menu {
+    background-color: #bcb8b8;
+    position: absolute;
+    /* top: 455px; Ajustez cette valeur en fonction de la distance du haut de la page */
+    width: 250px;
+
+    left: 30px;
+    transform: translate(-50%, -50%);
+    color: black;
+    padding: 30px 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    z-index: 111;
+    max-height: 770px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    gap:30px
+   
+
+  }
+  
+  /* Style the menu items as needed */
+  .menu ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .menu li {
+    padding: 20px 0;
+    border-bottom: 1px solid #cccccc;
+    height: 250px;
+  }
+  
+  /* Add hover effect for menu items if desired */
+  .menu .userComment:hover {
+    background-color: #c6c6c6;
+    color: black;
+    cursor: pointer;
+  }
+  
+  .counter{
+
+
+   /* Forme de la badge (cercle) */
+    font-size: 20px; /* Taille de la police du numéro */
+    position: relative;
+    text-align: center;
+ 
+}
+  .notifyMsg{
+    color:white
+  }
+  .num{
+    position: absolute;
+    top: -5px;
+    padding-top: 2px;
+    width: 25px; /* Largeur de la badge */
+    height: 25px; /* Hauteur de la badge */
+    border-radius: 50%; 
+    background-color: #ff5722;
+    font-weight:300 ;
+     margin-bottom: 10px ;
+    font-size: 22px;
+    color: white;
+    font-weight: bold;
+   
+   
+
+  }

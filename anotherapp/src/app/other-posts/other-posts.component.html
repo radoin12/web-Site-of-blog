@@ -1,0 +1,28 @@
+
+<ng-container *ngIf="status ;else content">
+  Loading...
+</ng-container>
+<ng-template #content>
+  <div  [ngClass]="{'other':true,'darkMode':dark$|async,'whiteMode':!(dark$|async)}" >
+    <h2>other posts {{cats}}</h2>
+
+    <div   *ngFor="let product of product$ " class="product">
+       
+      <div class="item">
+        <img [src]="'assets/uploads/'+ product?.img" />
+        <h2>{{product?.title}}</h2>
+        <p>{{product?.description}}</p>
+      </div>
+
+    
+    
+  </div> 
+    
+</div>
+   
+   
+   
+
+
+
+</ng-template>

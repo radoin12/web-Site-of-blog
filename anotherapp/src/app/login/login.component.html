@@ -1,0 +1,17 @@
+
+
+
+<div class="login">
+    <h2>Login</h2>
+ 
+    <input required [(ngModel)]="formLogin.email" type="email" placeholder="email" />
+    <p style="color: red;" *ngIf="errorReponse?.errorEmail&&!formLogin.email">{{errorReponse?.errorEmail}}</p>
+    <input required [(ngModel)]="formLogin.password"  placeholder="password"/>
+    <p style="color: red;" *ngIf="errorReponse?.errorPass&&!formLogin.password">{{errorReponse?.errorPass}}</p>
+    <button type="submit" (click)="handlerLogin()">Login</button>
+    <p style="color: red;" *ngIf="errorapi">{{errorapi}}</p>
+    <div class="linkLogin">
+      <p> you dont't have a compte?</p> 
+      <a><span>Register</span></a>
+    </div>
+  </div>

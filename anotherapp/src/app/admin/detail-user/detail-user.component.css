@@ -1,0 +1,82 @@
+.title{
+    color:red
+}
+.contents{
+    width: 500px ;
+    min-height: 500px;
+ 
+    background-color: rgb(225, 225, 239);
+}
+.img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+
+}
+.user{
+    display: flex;
+    align-items: center;
+    gap:5px
+}
+.product{
+    display:  flex;
+    flex-direction: column;
+    padding: 10px 10px 20px 10px;
+    gap:5px ;
+}
+.imageproducts{
+    width: 250px ;
+    height:250px
+}
+.btn{
+    display:flex ;
+     gap:20px ;
+    align-items: center;
+    padding: 20px;
+    justify-content: center;
+}
+.previous{
+    cursor: pointer;
+    background-color: rgb(215, 21, 21);
+    color: white ;
+    padding: 7px 10px;
+    width: 80px;
+    border-radius: 5px;
+    font-weight: 500;
+}
+.previous:hover{
+    background-color: red;
+}
+.next:hover{
+    background-color: green;
+}
+.next {
+    cursor: pointer;
+    background-color: rgb(22, 96, 22);
+    color: white ;
+    padding: 7px 10px;
+    width: 100px;
+    border-radius: 5px;
+    font-weight: 500;  
+}
+.disbledBtn{
+  
+  
+    cursor:default;
+
+  
+    padding: 7px 10px;
+    width: 100px;
+    border-radius: 5px;
+    box-shadow: 7px 4px 3px rgb(13, 13, 13,0.5);
+   }
+   @media only screen and (max-width: 700px){
+    .contents{
+ 
+    margin: 10px;
+  
+ 
+
+    }
+     
+  }

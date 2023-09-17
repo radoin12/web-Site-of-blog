@@ -1,0 +1,365 @@
+/* Style pour le composant conteneur */
+.user-profile-container {
+    display: flex;
+    width: 100%;
+    height: 100vh;
+    
+  }
+  
+  /* Style pour la barre latérale gauche (informations sur l'utilisateur) */
+  .user-info-sidebar {
+   
+    width: 250px; /* Largeur de la barre latérale */
+   
+
+    color: #fff;
+    padding: 20px;
+   
+   
+
+  }
+  
+  /* Style pour le contenu de la barre latérale gauche (avatar, nom, etc.) */
+  .user-info-content {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .user-info-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #aba3a3; /* Placeholder pour l'avatar */
+  }
+  
+  .user-info-name {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  /* Style pour la barre latérale droite (publications de l'utilisateur) */
+  .user-posts-sidebar {
+    flex: 3;
+    background-color: #f0f0f0;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  /* Style pour chaque publication */
+
+  .darkBlack{
+    background-color: #333;
+    border: 1px solid #ddd;
+    color:white;
+  }
+  .whiteMode{
+    color: #666;
+    background-color: #f5f1f1;
+    border: 1px solid #4e4c4c;
+  }
+  .product {
+  
+  overflow-y: auto;
+
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  
+  overflow: hidden;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s;
+  margin: 30px auto;
+  max-width: 800px; 
+  
+  
+
+  }
+  .details{
+    display: flex;
+  }
+  #toggleSidebarButton {
+    display: none; /* Masquez le bouton par défaut */
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    transform: translate(50%,-50%);
+  }
+  .tolbar{
+    background-color: #333;
+    padding: 50px;
+    display: none;
+    position: relative;
+  }
+
+
+ 
+  
+ 
+  
+  .product-image{
+  max-width: 100%;
+   max-height: 270px;
+
+
+  border-radius: 10px;
+
+  padding: 10px;
+  }
+  .product-image img{
+    width: 300px;
+   
+    height: 250px;
+  }
+ 
+  .product-details{
+    flex-grow: 1;
+    gap:10px;
+    padding: 0 20px;
+    padding-right: 10px;
+    position: relative;
+}
+  
+  .product .product-name {
+  
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #3b5cf0;
+  }
+  
+  .product .user-post-content {
+
+    font-size: 1.2rem;
+   
+    text-align: justify;
+    line-height: 1.17;
+  }
+  .product-date {
+    font-size: 1rem;
+    color: #999;
+    margin-top: 10px;
+  }
+  
+  
+  .like-button {
+  background-color: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+  }
+  
+  .like-button:hover {
+    background-color: #ff4545;
+  }
+  
+  .fa-heart {
+    margin-right: 5px;
+  }
+  /* Style pour le conteneur des commentaires */
+
+
+.product-comments {
+
+  border-radius: 5px;
+    padding: 10px;
+    overflow-y: auto;
+    margin-top: 20px; /* Espace entre le contenu du produit et les commentaires */
+  }
+  .user_comment{
+    display: flex;
+    gap:10px ;
+    cursor: pointer;
+  }
+  .user_comment img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+  }
+  .comment-add{
+    display: flex;
+    gap:15px;
+    border-radius: 5px;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 8px;
+    
+  }
+  
+  /* Style pour le champ de saisie de commentaire */
+.comment-input {
+    width: 300px;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+   
+  }
+  /* style button menubar */
+  #toggleSidebarButton{
+   
+    transition: 2s;
+  }
+  /* Style pour le bouton "Ajouter un commentaire" */
+  .comment-button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    
+  }
+  
+  .comment-button:hover {
+    background-color: #2980b9;
+  }
+  
+  /* Style pour la liste des commentaires */
+  .comment-list {
+    margin-top: 10px;
+    padding: 10px;
+  
+    border-radius: 5px;
+   
+    overflow-y:auto
+  }
+  
+  /* Style pour chaque commentaire individuel dans la liste */
+  .comment-list div {
+  
+    padding:  10px;
+
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+  }
+
+  
+  .product::-webkit-scrollbar {
+    width: 8px; /* Width of the scrollbar */
+  }
+  
+  .product::-webkit-scrollbar-track {
+    background: #f1f1f1; /* Track color */
+  }
+  
+  .product::-webkit-scrollbar-thumb {
+    background: #888; /* Thumb color */
+  }
+  
+  
+     /* Loading indicator container */
+.loading-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  /* Loading spinner */
+  .loading-spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+  }
+  
+  /* Loading spinner animation */
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+
+  /* media screen */
+ 
+
+  @media only screen and (max-width: 900px){
+    .details{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap:20px
+  }
+  }
+
+  @media only screen and (max-width: 800px){
+    .user-profile-container{
+        display: flex;
+        flex-direction: column;
+       
+    }
+    .user-info-content {
+        text-align: left;
+    
+      }
+     
+      
+      .user-info-avatar {
+        width: 50px;
+        height: 50px;
+       
+      
+      }
+    .user-info-sidebar {
+     
+        transform: translateX(-350px);
+        height: 150px;
+        transition: linear 0.5s;
+        width:800%
+      }
+      #toggleSidebarButton,.tolbar{
+        display: block; /* Affichez le bouton lorsque la largeur de l'écran est de 700 pixels ou moins */
+      }
+    .user-posts-sidebar{
+        flex:4 
+    }
+    
+      
+    .product .user-post-content{
+        line-height: 1.1;
+        width: 100%;
+        text-align:left;
+    }
+    .product-name{
+        text-align: center;
+        margin-bottom: 10px;
+    }
+    
+   
+
+     
+  }
+ 
+  @media only screen and (max-width: 500px){
+   
+  
+    .product .user-post-content{
+        line-height: 1;
+        width: 100%;
+        text-align:left;
+    }
+   
+      .comment-add{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .comment-input{
+        width: 90%;
+      }
+  }

@@ -1,0 +1,114 @@
+
+<div class="nav">
+  <ul class="items">
+      <a routerLink="/admin"><li>home</li></a>
+    <div class="admin">
+      <img [src]="'assets/uploads/'+ DecodeUser?.img" alt="" class="img" />
+      <span class="spanNav">{{ DecodeUser?.name}}</span>
+
+    </div>
+    <div class="demo-section">
+     
+     
+    <div class="counter">
+      <mat-icon  class="notifyMsg" (click)="toggleMenus()" >notifications</mat-icon>
+      <span class="num" *ngIf="notificationCount.post_count>0">{{notificationCount.post_count}}</span>
+      <div class="menu" *ngIf="MenuOpen && notifications.length>0"[ngStyle]="{'top.px': notifications.length < 2 ? 170 :notifications.length<4&&notifications.length>2?320:notifications.length===2?235: 455 }" >
+        <ul *ngFor="let item of notifications ; let i = index" >
+         
+          <li   (click)="readbleNotify(item.notification_id)" [ngClass]="{'userComment':true,'readble':!item.isread}" >
+       <div >
+        <div  class="info"  [routerLink]= "item?.postId?['/single',item?.postId]:['profile',item.userId]" >
+          <img [src]="'assets/uploads/'+ item?.imageUser" alt="" class="img" />
+          <p>{{item?.userName}}</p>
+          <span class="msg">{{item?.message}}</span>
+        
+        </div>
+        <p>{{ getDates(item?.createdAt)}}</p>
+        
+         <!-- menu for icon ... -->
+        
+        
+        <div class="modelButton" *ngIf="notificationStates[i]" (click)="deleteNotify(item.notification_id)">
+         <span>delete</span> <mat-icon class="delete">delete</mat-icon>
+        </div>
+       </div>
+        
+         
+        <button   class="listeNotify" mat-icon-button (click)="toggleRightWorkspace(i)">
+        
+        <ng-container *ngIf="notificationStates[i]; else Block">
+          <mat-icon>keyboard_arrow_down</mat-icon>
+         
+        
+        </ng-container>
+        <ng-template #Block>
+          
+          <mat-icon>more_horiz</mat-icon>
+        </ng-template>
+        </button>
+          
+            <!-- Show notification details: user name, user image, comment content -->
+             
+          </li>
+        </ul>
+        
+        </div>
+    </div>
+    
+     
+  
+    
+      
+   
+    
+     
+    </div>
+      <span class="spanNav" (click)="logout()">logout</span>
+     
+  </ul>
+
+</div>
+
+<div class="container">
+
+    <div class="drawermain">
+      
+        
+        <div class="rigth" *ngFor="let item of sideBarData; let i = index">
+           <div class="item" (click)="toggle(i)">
+            <mat-icon>{{item.icon}}</mat-icon>
+            <button mat-button [routerLink]="item.path" >{{item.name}}</button>
+            
+            <ng-container *ngIf="item.list"  >
+           
+            <mat-icon    [ngClass]="{'down':!item.open, 'up':item.open}">arrow_upward</mat-icon>
+          
+              
+           </ng-container>
+               
+            
+               
+           </div>
+           <div  class="lists"  *ngFor="let list of item.list">
+            
+             <ng-container *ngIf="item.open">
+             
+             <div class="show">
+                <span [routerLink]="list.path">{{list.name}} </span>  
+                <mat-icon>{{list.icon}}</mat-icon>
+             </div>
+             
+             </ng-container>
+           
+            </div>
+          
+          </div>
+        
+      </div>
+       <div class="content">
+        
+        <router-outlet></router-outlet>  
+       </div>
+       
+</div>
